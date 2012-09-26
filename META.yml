@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Cisco-UCS-Common-Fan
-version:            0.1
+version:            0.2
 abstract:           Class for operations with a Cisco UCS fan.
 author:
     - Luke Poskitt <ltp@cpan.org>

@@ -8,7 +8,7 @@ use Carp		qw(croak);
 
 use vars qw($VERSION);
 
-$VERSION	= '0.1';
+$VERSION	= '0.2';
 
 our @ATTRIBUTES = qw(dn id model operability power presence revision serial thermal tray vendor voltage);
 
@@ -24,7 +24,8 @@ sub new {
 	defined $args{dn}	? $self->{dn}	= $args{dn}		: croak 'dn not defined';
 	defined $args{id}	? $self->{id}	= $args{id}		: croak 'id not defined';
 	defined $args{ucs}	? weaken($self->{ucs} = $args{ucs})	: croak 'ucs not defined';
-	my %attr = %{$self->{ucs}->resolve_dn(dn => $self->{dn})->{outConfig}->{equipmentFan}};
+	my %attr = %{$self->{ucs}->resolve_dn(dn => $self->{dn})};
+	%attr = %{ exists $attr{outConfig}{equipmentFan} ? $attr{outConfig}{equipmentFan} : $attr{outConfig}{equipmentFanModule} };
 
 	while (my ($k, $v) = each %attr) { $self->{$k} = $v }
 

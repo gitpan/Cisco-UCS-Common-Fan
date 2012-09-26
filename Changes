@@ -1,5 +1,9 @@
 Revision history for Cisco-UCS-Common-Fan
 
-0.01    Date/time
-        First version, released on an unsuspecting world.
+0.2	Wed 26 Sep ltp@cpan.org
+	- Modifications to provide fix for change of equipmentFan -> equipmentFanModule object
+	  naming for Interconnects in UCSM 2.0(4a).
+
+0.1	Mon 26 Mar ltp@cpan.org
+        - First release.
 
